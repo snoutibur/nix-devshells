@@ -22,13 +22,20 @@
       in {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            rustup
+            # toolchain
+            cargo
+            rustc
+            rust-analyzer
+            rustfmt
+            clippy
+
+            # editor
             pkgs-unstable.jetbrains.rust-rover
           ];
 
           shellHook = ''
+            rust-rover > /dev/null 2>&1 &
             echo "Rust dev shell loaded"
-            echo "rustup default stable to install toolchain"
           '';
         };
       }
