@@ -23,11 +23,7 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             # toolchain
-            cargo
-            rustc
-            rust-analyzer
-            rustfmt
-            clippy
+            rustup
 
             # editor
             pkgs-unstable.jetbrains.rust-rover
